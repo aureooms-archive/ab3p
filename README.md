@@ -9,6 +9,10 @@ Rules for porting:
 
 	remove all const key words
 	
+	split between interface and implementation where possible, for example
+	    - header file -> interface
+	    - source file -> implementation
+	
 	primitive*     becomes primitive[]
 	std::vector<T> becomes ArrayList<T>
 	Clazz a;       becomes Clazz a = new Clazz();
