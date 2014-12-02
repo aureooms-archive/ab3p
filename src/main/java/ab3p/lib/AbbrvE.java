@@ -1,64 +1,147 @@
 package ab3p.lib;
 
-/**
- * Created by genius on 30/08/14.
- */
-public class AbbrvE {
-    public int numa;
-    public char[][] abbs;
-    public char[][] abbl;
-    private MPtok pMt;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-    public void Proc(char[] pxh) {
+public abstract class AbbrvE {
 
-        long i,j;
-        char[] pch, ptr;
-        
-        pMt.segment(pxh);
-        for(i=0;i<pMt.sent.size();i++){
-            Extract2( (pMt->sent[i]).c_str() );
-        }
+	/**
+	 * Extracts possible long-short form 
+	 * pairs, but does not attempt to find
+	 * the relationship
+	 * 
+	 * @param pch
+	 */
+	public abstract void Extract(final char[] pch) ;
+	
+	
+	/**
+	 * Extracts possible long-short form 
+	 * pairs, but does not attempt to find
+	 * the relationship ( extened version (Jan-9-2008) )
+	 * 
+	 * @param pch
+	 */
+	public abstract void Extract2(final char[] pch) ;
 
-        seq.flag_seq( numa, abbs );
-        j=0;
-        for(i=0;i<numa;i++){
-            if( seq.rate(i) ){
-                if(j<i){
-                    pch=abbl[i];
-                    if(ptr=strchr(pch,'|')){
-                        *ptr='/';
-                        ptr++;
-                        while(ptr=strchr(pch,'|')){
-                            *ptr='/';
-                            ptr++;
-                        }
-                    }
-                    abbl[j]=pch;
-                    pch=abbs[i];
-                    if(ptr=strchr(pch,'|')){
-                        *ptr='/';
-                        ptr++;
-                        while(ptr=strchr(pch,'|')){
-                            *ptr='/';
-                            ptr++;
-                        }
-                    }
-                    abbs[j]=pch;
-                    nt[j]=nt[i];
-                }
-                j++;
-            }
-            else {
-                delete [] abbl[i];
-                delete [] abbs[i];
-            }
-        }
+	/**
+	 * Tests a single token and returns true if
+	 * the token should be a possible first token
+	 * of a short form
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public abstract boolean Test(final char[] str) ;
+	
+	/**
+	 * Sets ratings for the proposed pairs. Effort to
+	 * remove (a), (b), etc., sequence markers
+	 */
+	public abstract void Rate() ;
 
-        numa=j;
-        
-        
-    }
+	/**
+	 * Produces a list of tokens in order of
+	 * of occurrence in the string.
+	 * @param str
+	 */
+	public abstract void token(final char[] str) ;
 
-    public void cleara() {
-    }
+	/**
+	 * Produces a list of tokens in order of
+	 * of occurrence in the string.
+	 * ( extended version (Jan-9-2008) )
+	 * @param str
+	 */
+	public abstract void token2(final char[] str) ;
+
+	
+	/**
+	 * Clear the abbl & abbs memory of strings
+	 */
+	public abstract void cleara() ;
+
+	/**
+	 * Clear the lst memory of words
+	 */
+	public abstract void clear() ; 
+
+	
+	
+	// Application functions
+	
+	/**
+	 * Accepts a natural language statement and
+	 * processes to final results stored in tta, abbs, and abbl
+	 * Need to call cleara function after each use of this function
+	 * 
+	 * @param pch
+	 */
+	public abstract void Proc(final char[] pch) ;
+
+	/**
+	 * Internal routines:
+	 * setup data for Test method
+	 */
+	public abstract void setup_Test() ;
+
+	/**
+	 * does str begins with a prefix?
+	 * @param str
+	 * @return
+	 */
+	public abstract boolean prefix_match(final char[] str) ;
+
+	
+	// Data
+	
+	/** Total possible abbreviations extracted ( default : 10k )*/
+	public long tta;
+	
+	/** number of abbreviations in current extract */
+	public long numa; 
+	
+	/** Long form space, hold up to 10 tokens */
+	public char[][] abbl;
+	
+	/** Short form space, hold up to 10 tokens */
+	public char[][] abbs;
+	
+	/** identify sequences to ignore */
+	public Find_Seq seq;
+	
+	/** Number of tokens within parentheses */
+	public int[] nt; 
+	
+	/** Space in lst for tokens ( default 10k ) */
+	public long word_space;
+	
+	/** Number of tokens */
+	public long num;
+	
+	/** Holds the tokens */
+	public char[][] lst;
+
+	public static int cnam_size = 100000;
+	
+	/** Work space */
+	public char[] cnam = new char[AbbrvE.cnam_size];
+	
+	/**
+	 * Pointer at tokenizer class. Used to segment text
+	 * in Proc function.
+	 */
+	public MPtok pMt = null; 
+	
+
+	// Test data
+	
+	/** bad SF to match exactly */
+	public Set<String> match = new HashSet<String>();
+	
+	/** bad SF to match prefix */
+	public List<String> prefix = new ArrayList<String>();
+	
 }

@@ -1,6 +1,7 @@
 package ab3p;
 
 import ab3p.lib.Ab3P;
+import ab3p.lib.Ab3PImpl;
 import ab3p.lib.AbbrOut;
 
 import java.io.*;
@@ -24,7 +25,7 @@ public class Ab3PIdentifyAbbr {
 	    System.exit(1);
 	  }
 
-	  Ab3P ab3p = new Ab3P();
+	  Ab3P ab3p = new Ab3PImpl();
 
 	  String filename = argv[0];
       File file = new File(filename);
