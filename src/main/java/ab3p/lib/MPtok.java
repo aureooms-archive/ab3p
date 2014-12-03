@@ -382,6 +382,9 @@ public class MPtok {
 	protected Set<String> common_pair = new HashSet<String>();
 	protected Map<String, Integer> common_abbr = new HashMap<String, Integer>();
 
-	private int option_token; // Output tokenized text (only use internally)
-	private int tok_initialized; // is it inited?
+	/** Output tokenized text (only use internally) */
+	private int option_token;
+	
+	/** is it inited? */
+	private int tok_initialized;
 }

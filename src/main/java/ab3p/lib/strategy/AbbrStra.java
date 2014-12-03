@@ -112,7 +112,7 @@ public abstract class AbbrStra {
 	char[] ps, pl; // sf, potential lf
 	char[] sf = new char[100], text = new char[10000]; // sf & potential lf used
 	// in a strategy
-	char[] lf = new char[10000]; // lf found by a strategy
+	public char[] lf = new char[10000]; // lf found by a strategy
 	char[][] tok = new char[1000][1000]; // token of potential lf
 	// lower after strategy, original after extract_lf(b,e,str)
 	long ntk; // # tokens
@@ -128,6 +128,6 @@ public abstract class AbbrStra {
 	long setCondition; // SF condition
 	long greaterEqNsf; // if 1 select SF |SF|>=nsf
 
-	WordData wData = null;
+	public WordData wData = null;
 
 }

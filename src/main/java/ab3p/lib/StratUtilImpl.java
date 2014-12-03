@@ -31,9 +31,9 @@ public class StratUtilImpl extends StratUtil {
 	}
 
 	@Override
-	public boolean group_sf(final char[] aSf, final char[] aLf, final String aGrp) {
+	public String group_sf(final char[] aSf, final char[] aLf) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override

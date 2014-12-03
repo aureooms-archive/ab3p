@@ -15,7 +15,7 @@ public abstract class StratUtil {
 	public abstract boolean group_sf(char[] sf, String grp);
 
 	// check if sf is ok and assign a group
-	public abstract boolean group_sf(char[] sf, char[] lf, String grp);
+	public abstract String group_sf(char[] sf, char[] lf);
 
 	// add the contion |lf|>|sf|
 	public abstract void remove_nonAlnum(char[] str1, char[] str2);

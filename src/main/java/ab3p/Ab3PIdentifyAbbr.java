@@ -17,7 +17,7 @@ public class Ab3PIdentifyAbbr {
 	  sf|lf|P-precision|strategy
 	*/
 
-	void main (String[] argv) throws IOException {
+	void main (String[] argv) throws Exception {
 
 	  //get text from a file
 	  if (argv.length != 1) {

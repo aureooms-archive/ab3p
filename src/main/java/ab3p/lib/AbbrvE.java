@@ -119,7 +119,7 @@ public abstract class AbbrvE {
 	public long word_space;
 	
 	/** Number of tokens */
-	public long num;
+	public int num;
 	
 	/** Holds the tokens */
 	public char[][] lst;

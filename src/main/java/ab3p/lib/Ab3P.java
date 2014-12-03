@@ -25,8 +25,9 @@ public abstract class Ab3P {
 	/**
 	 * Sets abbrs to the abbreviations found in previous calls to add_text.
 	 * Afterwords, resets the text buffer.
+	 * @throws Exception 
 	 */
-	public void get_abbrs(final List<AbbrOut> abbrs) {
+	public void get_abbrs(final List<AbbrOut> abbrs) throws Exception {
 		this.get_abbrs(this.buffer, abbrs);
 		this.buffer = "";
 	}
@@ -34,8 +35,9 @@ public abstract class Ab3P {
 	/**
 	 * Sets abbrs to the abbreviations found in text Does not interfere with the
 	 * add_text buffer.
+	 * @throws Exception 
 	 */
-	public void get_abbrs(final String text, final List<AbbrOut> abbrs) {
+	public void get_abbrs(final String text, final List<AbbrOut> abbrs) throws Exception {
 		abbrs.clear();
 
 		if (text.isEmpty())
@@ -46,30 +48,32 @@ public abstract class Ab3P {
 		this.get_abbrs(text.toCharArray(), abbrs);
 	}
 
-	public abstract void get_abbrs(char[] text, List<AbbrOut> abbrs);
+	public abstract void get_abbrs(char[] text, List<AbbrOut> abbrs) throws Exception;
 
 	/**
 	 * Try a potential sf-lf form to find proper lf, strategy used, and
 	 * pseudo-precision of result
+	 * @throws Exception 
 	 */
-	public abstract void try_pair(char[] sf, char[] lf, AbbrOut abbr);
+	public abstract void try_pair(char[] sf, char[] lf, AbbrOut result) throws Exception;
 
 	/**
 	 * psf -- pointer short form
 	 * plf -- pointer long form
+	 * @throws Exception 
 	 */
-	public abstract void try_strats(char[] psf, char[] plf, boolean swap, AbbrOut result);
+	public abstract void try_strats(char[] psf, char[] plf, boolean swap, AbbrOut result) throws Exception;
 
-	// default # pairs = 10,000
+	/** default # pairs = 10,000 */
 	public AbbrvE ab = new AbbrvEImpl();
 	
 	public Map<String, Double> stratPrec = new HashMap<String, Double>();
 	public StratUtil util = new StratUtilImpl();
 	
-	// set data needed for AbbrStra
+	/** set data needed for AbbrStra */
 	public WordData wrdData = null;
 	
-	// collect text for later use
+	/** collect text for later use */
 	public String buffer = "";
 
 }
