@@ -5,6 +5,6 @@ package ab3p.lib.strategy;
  * one match right after non-alphanum (eg, success: 1-alpha 2-beta (AB),
  * alpha-beta(AB), fail: alpha beta(AB))
  */
-public abstract class FirstLetGen extends AbbrStra {
+public class FirstLetGen extends AbbrStraBase {
 
 }

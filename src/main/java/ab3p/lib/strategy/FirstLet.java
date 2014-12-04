@@ -1,9 +1,8 @@
 package ab3p.lib.strategy;
 
-/*
- alpha beta gamma (ABG)
+/**
+ * alpha beta gamma (ABG)
  */
-public abstract class FirstLet extends AbbrStra {
+public class FirstLet extends AbbrStraBase {
 
-	public abstract boolean set_condition(char[] str1, char[] str2, char[] str);
 }

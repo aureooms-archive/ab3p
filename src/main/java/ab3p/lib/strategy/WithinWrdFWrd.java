@@ -1,10 +1,10 @@
 package ab3p.lib.strategy;
 
-/*
- - WithinWrdWrd w/ Begin Word Match
- (success: AlphaBeta x-Word (ABW)
- fail: AlphaBeta inWord (ABW) )
+/**
+ * - WithinWrdWrd w/ Begin Word Match
+ * (success: AlphaBeta x-Word (ABW)
+ * fail: AlphaBeta inWord (ABW) )
  */
-public abstract class WithinWrdFWrd extends AbbrStra {
+public class WithinWrdFWrd extends AbbrStraBase {
 
 }

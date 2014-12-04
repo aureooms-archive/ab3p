@@ -5,6 +5,6 @@ package ab3p.lib.strategy;
  * one in row) (success: Alpha yXyy (AX), Alpha yXyy word (AX) 1-Alpha yXyy word
  * (AX))
  */
-public abstract class AnyLet extends AbbrStra {
+public class AnyLet extends AbbrStraBase {
 
 }
