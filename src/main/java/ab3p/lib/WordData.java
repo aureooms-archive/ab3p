@@ -1,5 +1,10 @@
 package ab3p.lib;
 
+import ab3p.lib.iret.Chash;
+import ab3p.lib.iret.ChashImpl;
+import ab3p.lib.iret.Hash;
+import ab3p.lib.iret.HashImpl;
+
 public class WordData {
 
 	private static final String WRDSET3 = "wrdset3";
@@ -23,16 +28,27 @@ public class WordData {
 	}
 
 	public WordData(final char[] wrdname, final char[] stpname, final char[] lfsname) {
-		// TODO
+		
+		this.wrdset = new ChashImpl(wrdname);
+		this.stp = new HashImpl(stpname);
+		this.lfs = new HashImpl(lfsname);
+		
+		this.wrdset.set_path_name("Ab3P".toCharArray());
+		this.wrdset.gopen_ctable_map();
+		this.stp.set_path_name("Ab3P".toCharArray());
+		this.stp.gopen_htable_map();
+		this.lfs.set_path_name("Ab3P".toCharArray());
+		this.lfs.gopen_htable_map();
+		
 	}
 
 	/** sigle word in MEDLINE */
-	public Chash wrdset = new Chash();
+	public Chash wrdset = new ChashImpl();
 	
 	/** stopword */
-	public Hash stp = new Hash();
+	public Hash stp = new HashImpl();
 	
 	/** lfs (1-ch sf) for FirstLet match cases >=2 */
-	public Hash lfs = new Hash();
+	public Hash lfs = new HashImpl();
 	
 }
