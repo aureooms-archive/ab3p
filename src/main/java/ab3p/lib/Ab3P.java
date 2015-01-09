@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import ab3p.lib.iret.AbbrvE;
+import ab3p.lib.iret.AbbrvEImpl;
+
 
 /**
  * Identify sf & lf pairs from free text using multi-stage algorithm process
