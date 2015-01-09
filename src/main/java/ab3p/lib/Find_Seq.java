@@ -43,7 +43,11 @@ public class Find_Seq {
 		this.seq_A.add("F");
 	}
 
-	// flag the SFs whether part of sequence or not
+	/**
+	 * flag the SFs whether part of sequence or not
+	 * @param numa
+	 * @param abbs
+	 */
 	public void flag_seq(final int numa, final char[][] abbs) {
 
 		this.my_numa = numa;
@@ -70,7 +74,11 @@ public class Find_Seq {
 		this.create_seq();
 	}
 
-	// true if good SF, false if part of sequence
+	/**
+	 * true if good SF, false if part of sequence
+	 * @param i
+	 * @return
+	 */
 	public boolean rate(final int i) {
 		return this.my_rate.get(i);
 	}

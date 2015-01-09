@@ -16,7 +16,7 @@ public class AbbrvEImpl extends AbbrvE {
 	 * @param wrd_spc
 	 */
 	public AbbrvEImpl(final long ta, final long wrd_spc) {
-
+		// TODO
 	}
 
 	@Override
