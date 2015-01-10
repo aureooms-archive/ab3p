@@ -1,7 +1,7 @@
 package ab3p.lib.iret;
 
-import ab3p.lib.BList;
-import ab3p.lib.Count;
+import ab3p.lib.iret.btree.BList;
+import ab3p.lib.iret.btree.Count;
 
 public class ChashImpl extends HashImpl implements Chash {
 

@@ -1,6 +1,6 @@
 package ab3p.lib.iret;
 
-import ab3p.lib.BList;
+import ab3p.lib.iret.btree.BList;
 
 public class HashImpl extends FBaseImpl implements Hash {
 
